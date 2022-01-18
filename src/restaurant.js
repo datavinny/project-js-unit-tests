@@ -78,29 +78,35 @@
 // PASSO 4: adicione ao objeto retornado por `createMenu()` uma chave `pay` com uma função
 // que percorre por todos os itens de `objetoRetornado.consumption`, soma o preço deles e retorna o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
-
 const createMenu = (objeto) => {
-  const menu = {
-    fetchMenu: () => objeto,
-    // consumption: () => 
-    // order: (string) =>
-    // pay: () => Object.values(objeto),
-  };
-  return menu;
+  if (typeof objeto === 'object') {
+    const chaveFoodDrinks = Object.keys(objeto); // key: food e drinks
+    const chaveFoods = Object.keys(objeto.food); // keys dentro de food
+    const chaveDrinks = Object.keys(objeto.drinks); // keys dentro de drinks
+    const priceFoods = Object.values(objeto.food); // valores dentro de food
+    const priceDrinks = Object.values(objeto.drinks);// valores dentro de drinks
+  
+    const menu = {
+      fetchMenu: () => `${chaveFoodDrinks[0]}: ${chaveFoods[0]}:${priceFoods[0]}, ${chaveFoods[1]}:${priceFoods[1]}, ${chaveFoodDrinks[1]}: ${chaveDrinks[0]}:${priceDrinks[0]}, ${chaveDrinks[1]}:${priceDrinks[1]}`,
+      // consumption: () => 
+      // order: (string) =>
+      // pay: () => Object.values(objeto),
+    };
+    return menu;
+  }
 };
 
-// // const meuRestaurante = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }).
 // const meuRestaurante = createMenu({
 //   food: { coxinha: 3.90, sanduiche: 9.90 },
 //   drinks: { agua: 3.90, cerveja: 6.90 },
 // });
-// // meuRestaurante.fetchMenu() // Retorno: { food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} }
-// console.log(meuRestaurante.fetchMenu());
-// // meuRestaurante.order('coxinha') // Retorno: undefined
+// console.log(meuRestaurante.fetchMenu()); 
 
-// // meuRestaurante.consumption // Retorno: ['coxinha']
+// const objTest = {
+//   food: { coxinha: 3.90, sanduiche: 9.90 },
+//   drinks: { agua: 3.90, cerveja: 6.90 },
+// };
 
-// // meuRestaurante.pay() // Retorno: 3.9
-// console.log(meuRestaurante.pay());
+// console.log(Object.entries(objTest));
 
 module.exports = createMenu;
