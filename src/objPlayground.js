@@ -36,28 +36,22 @@
 
 const calculator = (number1, number2) => {
   const calculos = {
-    // sum: sum = () => number1 + number2,
-    // mult: mult = () => number1 * number2,
-    // div: div = () => Math.floor(number1 / number2, -1),
-    // sub: sub = () => number1 - number2,
     sum: number1 + number2,
     mult: number1 * number2,
     div: Math.floor(number1 / number2, -1),
     sub: number1 - number2,
   };
-  // calculos.sum = () => number1 + number2;
-  // calculos.mult = () => number1 * number2;
-  // calculos.div = () => Math.floor(number1 / number2, -1);
-  // calculos.sub = () => number1 - number2;
   return calculos;
 };
 
 const arrayGenerator = (type, object) => {
-  if(type === 'keys') {
+  if (type === 'keys') {
     return Object.keys(object);
-  } if(type === 'values') {
+  } 
+  if (type === 'values') {
     return Object.values(object);
-  } if(type === 'entries') {
+  } 
+  if (type === 'entries') {
     return Object.entries(object);
   }
 };
