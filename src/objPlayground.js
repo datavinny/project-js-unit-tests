@@ -1,3 +1,4 @@
+/* eslint-disable keyword-spacing */
 /*
   Implemente a função calculator que recebe dois números inteiros como parâmetro e retorna um objeto com as seguintes chaves:
     - sum;
@@ -33,8 +34,36 @@
   arrayGenerator('entries', { sum: 3, mult: 2, div: 1, sub: 0 }) // [ [ 'sum', 3 ], [ 'mult', 2 ], [ 'div', 1 ], [ 'sub', 0 ] ]
 */
 
-const calculator = (number1, number2) => {};
+const calculator = (number1, number2) => {
+  const calculos = {
+    // sum: sum = () => number1 + number2,
+    // mult: mult = () => number1 * number2,
+    // div: div = () => Math.floor(number1 / number2, -1),
+    // sub: sub = () => number1 - number2,
+    sum: number1 + number2,
+    mult: number1 * number2,
+    div: Math.floor(number1 / number2, -1),
+    sub: number1 - number2,
+  };
+  // calculos.sum = () => number1 + number2;
+  // calculos.mult = () => number1 * number2;
+  // calculos.div = () => Math.floor(number1 / number2, -1);
+  // calculos.sub = () => number1 - number2;
+  return calculos;
+};
 
-const arrayGenerator = (type, object) => {};
+const arrayGenerator = (type, object) => {
+  if(type === 'keys') {
+    return Object.keys(object);
+  } if(type === 'values') {
+    return Object.values(object);
+  } if(type === 'entries') {
+    return Object.entries(object);
+  }
+};
+
+console.log(arrayGenerator('keys', { sum: 3, mult: 2, div: 1, sub: 0 })); // [ 'sum', 'mult', 'div', 'sub' ]
+console.log(arrayGenerator('values', { sum: 3, mult: 2, div: 1, sub: 0 })); // [ 3, 2, 1, 0 ]
+console.log(arrayGenerator('entries', { sum: 3, mult: 2, div: 1, sub: 0 })); // [ [ 'sum', 3 ], [ 'mult', 2 ], [ 'div', 1 ], [ 'sub', 0 ] ]
 
 module.exports = { calculator, arrayGenerator };
